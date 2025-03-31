@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小朋友学乘法</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>小朋友学乘法</h1>
+        </header>
+
+        <div class="nav-buttons">
+            <button class="nav-btn active" data-section="concept">什么是乘法</button>
+            <button class="nav-btn" data-section="practice">互动练习</button>
+            <button class="nav-btn" data-section="story">乘法故事</button>
+            <button class="nav-btn" data-section="table">乘法表</button>
+            <button class="nav-btn" data-section="challenge">挑战游戏</button>
+        </div>
+
+        <!-- 乘法概念部分 -->
+        <section id="concept" class="section active">
+            <h2>什么是乘法？</h2>
+            <div class="concept-container">
+                <div class="explanation">
+                    <p class="speech-text" data-speech="乘法就是相同数量的多组物品">乘法就是"相同数量的多组物品"</p>
+                </div>
+                
+                <div class="visual-example">
+                    <div class="example-text">
+                        <p class="speech-text" data-speech="这是3组，每组有2个苹果">这是 <span class="highlight speech-text" data-speech="3">3</span> 组，每组有 <span class="highlight speech-text" data-speech="2">2</span> 个苹果</p>
+                    </div>
+                    <div class="apples-container">
+                        <!-- 三组苹果，每组两个 -->
+                        <div class="apple-group">
+                            <div class="apple"></div>
+                            <div class="apple"></div>
+                        </div>
+                        <div class="apple-group">
+                            <div class="apple"></div>
+                            <div class="apple"></div>
+                        </div>
+                        <div class="apple-group">
+                            <div class="apple"></div>
+                            <div class="apple"></div>
+                        </div>
+                    </div>
+                    <div class="example-text">
+                        <p class="speech-text" data-speech="我们可以这样计算：2+2+2=6，也可以说3乘以2等于6">我们可以这样计算：<span class="highlight">2 + 2 + 2 = 6</span></p>
+                        <p class="speech-text" data-speech="也可以写成3乘以2等于6">也可以写成：<span class="highlight speech-text" data-speech="3乘2等于6">3 × 2 = 6</span></p>
+                    </div>
+                    <div class="count-all">
+                        <button id="countApplesBtn" class="action-btn">数一数，总共有几个苹果？</button>
+                        <div id="countResult" class="count-result"></div>
+                    </div>
+                </div>
+                
+                <div class="concept-navigation">
+                    <button id="prevExampleBtn" class="nav-arrow" disabled>←</button>
+                    <div class="example-indicator">
+                        <span class="indicator active"></span>
+                        <span class="indicator"></span>
+                        <span class="indicator"></span>
+                    </div>
+                    <button id="nextExampleBtn" class="nav-arrow">→</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 互动练习部分 -->
+        <section id="practice" class="section">
+            <h2>互动练习</h2>
+            <div class="practice-container">
+                <div class="practice-tabs">
+                    <button class="practice-tab active" data-practice="drag">拖拽游戏</button>
+                    <button class="practice-tab" data-practice="match">连线游戏</button>
+                    <button class="practice-tab" data-practice="puzzle">拼图游戏</button>
+                </div>
+                
+                <!-- 拖拽游戏 -->
+                <div id="drag" class="practice-content active">
+                    <div class="drag-game">
+                        <div class="instructions">
+                            <p>把 <span id="dragGroupCount">3</span> 组，每组 <span id="dragItemCount">2</span> 个糖果拖到盒子里</p>
+                        </div>
+                        <div class="drag-area">
+                            <div class="candy-source" id="candySource"></div>
+                            <div class="boxes-container" id="boxesContainer"></div>
+                        </div>
+                        <div class="drag-result" id="dragResult"></div>
+                    </div>
+                </div>
+                
+                <!-- 连线游戏 -->
+                <div id="match" class="practice-content">
+                    <div class="match-game">
+                        <div class="match-instructions">
+                            <p>把乘法算式和正确的图形连起来</p>
+                        </div>
+                        <div class="match-area" id="matchArea"></div>
+                        <button id="checkMatchBtn" class="action-btn">检查答案</button>
+                    </div>
+                </div>
+                
+                <!-- 拼图游戏 -->
+                <div id="puzzle" class="practice-content">
+                    <div class="puzzle-game">
+                        <div class="puzzle-instructions">
+                            <p>拖拽数字，完成乘法等式</p>
+                        </div>
+                        <div class="puzzle-area" id="puzzleArea">
+                            <div class="puzzle-equation">
+                                <div class="puzzle-slot" data-value=""></div>
+                                <span class="puzzle-symbol">×</span>
+                                <div class="puzzle-slot" data-value=""></div>
+                                <span class="puzzle-symbol">=</span>
+                                <div class="puzzle-slot" data-value=""></div>
+                            </div>
+                            <div class="puzzle-pieces" id="puzzlePieces"></div>
+                        </div>
+                        <button id="checkPuzzleBtn" class="action-btn">检查答案</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 乘法故事部分 -->
+        <section id="story" class="section">
+            <h2>乘法故事</h2>
+            <div class="story-container">
+                <div class="story-image" id="storyImage"></div>
+                <div class="story-text" id="storyText"></div>
+                <div class="story-question" id="storyQuestion"></div>
+                <div class="story-options" id="storyOptions"></div>
+                <div class="story-feedback" id="storyFeedback"></div>
+                <button id="nextStoryBtn" class="action-btn">下一个故事</button>
+            </div>
+        </section>
+
+        <!-- 乘法表部分 -->
+        <section id="table" class="section">
+            <h2>乘法表</h2>
+            <div class="table-container">
+                <div class="table-selection">
+                    <p>我想看看：</p>
+                    <div class="number-buttons" id="tableNumberButtons">
+                        <!-- 数字按钮将由JS生成 -->
+                    </div>
+                </div>
+                <div class="multiplication-table" id="multiplicationTable"></div>
+                <div class="table-visual" id="tableVisual"></div>
+            </div>
+        </section>
+
+        <!-- 挑战模式部分 -->
+        <section id="challenge" class="section">
+            <h2>挑战游戏</h2>
+            <div class="challenge-container">
+                <div class="challenge-info">
+                    <div class="challenge-timer">
+                        <span id="timer">60</span> 秒
+                    </div>
+                    <div class="challenge-score">
+                        得分：<span id="score">0</span>
+                    </div>
+                </div>
+                <div class="challenge-question" id="challengeQuestion"></div>
+                <div class="challenge-options" id="challengeOptions"></div>
+                <div class="challenge-feedback" id="challengeFeedback"></div>
+                <button id="startChallengeBtn" class="action-btn">开始挑战</button>
+            </div>
+        </section>
+
+        <!-- 弹出式奖励和反馈 -->
+        <div class="reward-container" id="rewardContainer">
+            <div class="reward-content">
+                <div class="reward-message" id="rewardMessage"></div>
+                <div class="reward-animation" id="rewardAnimation"></div>
+                <button id="rewardCloseBtn" class="action-btn">继续</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
