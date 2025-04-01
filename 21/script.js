@@ -3,7 +3,16 @@ let currentConceptExample = 0;
 const conceptExamples = [
     { num1: 3, num2: 2, text: "3组，每组2个苹果", additionText: "2 + 2 + 2 = 6", multiplicationText: "3 × 2 = 6" },
     { num1: 2, num2: 4, text: "2组，每组4个苹果", additionText: "4 + 4 = 8", multiplicationText: "2 × 4 = 8" },
-    { num1: 5, num2: 1, text: "5组，每组1个苹果", additionText: "1 + 1 + 1 + 1 + 1 = 5", multiplicationText: "5 × 1 = 5" }
+    { num1: 5, num2: 1, text: "5组，每组1个苹果", additionText: "1 + 1 + 1 + 1 + 1 = 5", multiplicationText: "5 × 1 = 5" },
+    { num1: 4, num2: 3, text: "4个小朋友，每人3颗糖果", additionText: "3 + 3 + 3 + 3 = 12", multiplicationText: "4 × 3 = 12" },
+    { num1: 3, num2: 5, text: "3个花盆，每个花盆种5朵花", additionText: "5 + 5 + 5 = 15", multiplicationText: "3 × 5 = 15" },
+    { num1: 2, num2: 6, text: "2只手，每只手6个手指", additionText: "6 + 6 = 12", multiplicationText: "2 × 6 = 12" },
+    { num1: 4, num2: 2, text: "4辆自行车，每辆2个轮子", additionText: "2 + 2 + 2 + 2 = 8", multiplicationText: "4 × 2 = 8" },
+    { num1: 3, num2: 3, text: "3个篮子，每个篮子3个橙子", additionText: "3 + 3 + 3 = 9", multiplicationText: "3 × 3 = 9" },
+    { num1: 5, num2: 2, text: "5只鸟，每只鸟2只翅膀", additionText: "2 + 2 + 2 + 2 + 2 = 10", multiplicationText: "5 × 2 = 10" },
+    { num1: 2, num2: 5, text: "2个书架，每个书架5本书", additionText: "5 + 5 = 10", multiplicationText: "2 × 5 = 10" },
+    { num1: 4, num2: 4, text: "4张桌子，每张桌子4条腿", additionText: "4 + 4 + 4 + 4 = 16", multiplicationText: "4 × 4 = 16" },
+    { num1: 3, num2: 4, text: "3个盒子，每个盒子4个玩具", additionText: "4 + 4 + 4 = 12", multiplicationText: "3 × 4 = 12" }
 ];
 
 let speechSynthesis = window.speechSynthesis;
