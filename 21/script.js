@@ -1,18 +1,97 @@
 // 全局变量
 let currentConceptExample = 0;
+
+// 添加物品类型数组
+const items = [
+    { name: '苹果', className: 'apple' },
+    { name: '香蕉', className: 'banana' },
+    { name: '小汽车', className: 'car' },
+    { name: '草莓', className: 'strawberry' },
+    { name: '菠萝', className: 'pineapple' }
+];
+
 const conceptExamples = [
-    { num1: 3, num2: 2, text: "3组，每组2个苹果", additionText: "2 + 2 + 2 = 6", multiplicationText: "3 × 2 = 6" },
+    { num1: 1, num2: 1, text: "1组，每组1个苹果", additionText: "1 = 1", multiplicationText: "1 × 1 = 1" },
+    { num1: 1, num2: 2, text: "1组，每组2个苹果", additionText: "2 = 2", multiplicationText: "1 × 2 = 2" },
+    { num1: 1, num2: 3, text: "1组，每组3个苹果", additionText: "3 = 3", multiplicationText: "1 × 3 = 3" },
+    { num1: 1, num2: 4, text: "1组，每组4个苹果", additionText: "4 = 4", multiplicationText: "1 × 4 = 4" },
+    { num1: 1, num2: 5, text: "1组，每组5个苹果", additionText: "5 = 5", multiplicationText: "1 × 5 = 5" },
+    { num1: 1, num2: 6, text: "1组，每组6个苹果", additionText: "6 = 6", multiplicationText: "1 × 6 = 6" },
+    { num1: 1, num2: 7, text: "1组，每组7个苹果", additionText: "7 = 7", multiplicationText: "1 × 7 = 7" },
+    { num1: 1, num2: 8, text: "1组，每组8个苹果", additionText: "8 = 8", multiplicationText: "1 × 8 = 8" },
+    { num1: 1, num2: 9, text: "1组，每组9个苹果", additionText: "9 = 9", multiplicationText: "1 × 9 = 9" },
+    { num1: 2, num2: 1, text: "2组，每组1个苹果", additionText: "1 + 1 = 2", multiplicationText: "2 × 1 = 2" },
+    { num1: 2, num2: 2, text: "2组，每组2个苹果", additionText: "2 + 2 = 4", multiplicationText: "2 × 2 = 4" },
+    { num1: 2, num2: 3, text: "2组，每组3个苹果", additionText: "3 + 3 = 6", multiplicationText: "2 × 3 = 6" },
     { num1: 2, num2: 4, text: "2组，每组4个苹果", additionText: "4 + 4 = 8", multiplicationText: "2 × 4 = 8" },
+    { num1: 2, num2: 5, text: "2组，每组5个苹果", additionText: "5 + 5 = 10", multiplicationText: "2 × 5 = 10" },
+    { num1: 2, num2: 6, text: "2组，每组6个苹果", additionText: "6 + 6 = 12", multiplicationText: "2 × 6 = 12" },
+    { num1: 2, num2: 7, text: "2组，每组7个苹果", additionText: "7 + 7 = 14", multiplicationText: "2 × 7 = 14" },
+    { num1: 2, num2: 8, text: "2组，每组8个苹果", additionText: "8 + 8 = 16", multiplicationText: "2 × 8 = 16" },
+    { num1: 2, num2: 9, text: "2组，每组9个苹果", additionText: "9 + 9 = 18", multiplicationText: "2 × 9 = 18" },
+    { num1: 3, num2: 1, text: "3组，每组1个苹果", additionText: "1 + 1 + 1 = 3", multiplicationText: "3 × 1 = 3" },
+    { num1: 3, num2: 2, text: "3组，每组2个苹果", additionText: "2 + 2 + 2 = 6", multiplicationText: "3 × 2 = 6" },
+    { num1: 3, num2: 3, text: "3组，每组3个苹果", additionText: "3 + 3 + 3 = 9", multiplicationText: "3 × 3 = 9" },
+    { num1: 3, num2: 4, text: "3组，每组4个苹果", additionText: "4 + 4 + 4 = 12", multiplicationText: "3 × 4 = 12" },
+    { num1: 3, num2: 5, text: "3组，每组5个苹果", additionText: "5 + 5 + 5 = 15", multiplicationText: "3 × 5 = 15" },
+    { num1: 3, num2: 6, text: "3组，每组6个苹果", additionText: "6 + 6 + 6 = 18", multiplicationText: "3 × 6 = 18" },
+    { num1: 3, num2: 7, text: "3组，每组7个苹果", additionText: "7 + 7 + 7 = 21", multiplicationText: "3 × 7 = 21" },
+    { num1: 3, num2: 8, text: "3组，每组8个苹果", additionText: "8 + 8 + 8 = 24", multiplicationText: "3 × 8 = 24" },
+    { num1: 3, num2: 9, text: "3组，每组9个苹果", additionText: "9 + 9 + 9 = 27", multiplicationText: "3 × 9 = 27" },
+    { num1: 4, num2: 1, text: "4组，每组1个苹果", additionText: "1 + 1 + 1 + 1 = 4", multiplicationText: "4 × 1 = 4" },
+    { num1: 4, num2: 2, text: "4组，每组2个苹果", additionText: "2 + 2 + 2 + 2 = 8", multiplicationText: "4 × 2 = 8" },
+    { num1: 4, num2: 3, text: "4组，每组3个苹果", additionText: "3 + 3 + 3 + 3 = 12", multiplicationText: "4 × 3 = 12" },
+    { num1: 4, num2: 4, text: "4组，每组4个苹果", additionText: "4 + 4 + 4 + 4 = 16", multiplicationText: "4 × 4 = 16" },
+    { num1: 4, num2: 5, text: "4组，每组5个苹果", additionText: "5 + 5 + 5 + 5 = 20", multiplicationText: "4 × 5 = 20" },
+    { num1: 4, num2: 6, text: "4组，每组6个苹果", additionText: "6 + 6 + 6 + 6 = 24", multiplicationText: "4 × 6 = 24" },
+    { num1: 4, num2: 7, text: "4组，每组7个苹果", additionText: "7 + 7 + 7 + 7 = 28", multiplicationText: "4 × 7 = 28" },
+    { num1: 4, num2: 8, text: "4组，每组8个苹果", additionText: "8 + 8 + 8 + 8 = 32", multiplicationText: "4 × 8 = 32" },
+    { num1: 4, num2: 9, text: "4组，每组9个苹果", additionText: "9 + 9 + 9 + 9 = 36", multiplicationText: "4 × 9 = 36" },
     { num1: 5, num2: 1, text: "5组，每组1个苹果", additionText: "1 + 1 + 1 + 1 + 1 = 5", multiplicationText: "5 × 1 = 5" },
-    { num1: 4, num2: 3, text: "4个小朋友，每人3颗糖果", additionText: "3 + 3 + 3 + 3 = 12", multiplicationText: "4 × 3 = 12" },
-    { num1: 3, num2: 5, text: "3个花盆，每个花盆种5朵花", additionText: "5 + 5 + 5 = 15", multiplicationText: "3 × 5 = 15" },
-    { num1: 2, num2: 6, text: "2只手，每只手6个手指", additionText: "6 + 6 = 12", multiplicationText: "2 × 6 = 12" },
-    { num1: 4, num2: 2, text: "4辆自行车，每辆2个轮子", additionText: "2 + 2 + 2 + 2 = 8", multiplicationText: "4 × 2 = 8" },
-    { num1: 3, num2: 3, text: "3个篮子，每个篮子3个橙子", additionText: "3 + 3 + 3 = 9", multiplicationText: "3 × 3 = 9" },
-    { num1: 5, num2: 2, text: "5只鸟，每只鸟2只翅膀", additionText: "2 + 2 + 2 + 2 + 2 = 10", multiplicationText: "5 × 2 = 10" },
-    { num1: 2, num2: 5, text: "2个书架，每个书架5本书", additionText: "5 + 5 = 10", multiplicationText: "2 × 5 = 10" },
-    { num1: 4, num2: 4, text: "4张桌子，每张桌子4条腿", additionText: "4 + 4 + 4 + 4 = 16", multiplicationText: "4 × 4 = 16" },
-    { num1: 3, num2: 4, text: "3个盒子，每个盒子4个玩具", additionText: "4 + 4 + 4 = 12", multiplicationText: "3 × 4 = 12" }
+    { num1: 5, num2: 2, text: "5组，每组2个苹果", additionText: "2 + 2 + 2 + 2 + 2 = 10", multiplicationText: "5 × 2 = 10" },
+    { num1: 5, num2: 3, text: "5组，每组3个苹果", additionText: "3 + 3 + 3 + 3 + 3 = 15", multiplicationText: "5 × 3 = 15" },
+    { num1: 5, num2: 4, text: "5组，每组4个苹果", additionText: "4 + 4 + 4 + 4 + 4 = 20", multiplicationText: "5 × 4 = 20" },
+    { num1: 5, num2: 5, text: "5组，每组5个苹果", additionText: "5 + 5 + 5 + 5 + 5 = 25", multiplicationText: "5 × 5 = 25" },
+    { num1: 5, num2: 6, text: "5组，每组6个苹果", additionText: "6 + 6 + 6 + 6 + 6 = 30", multiplicationText: "5 × 6 = 30" },
+    { num1: 5, num2: 7, text: "5组，每组7个苹果", additionText: "7 + 7 + 7 + 7 + 7 = 35", multiplicationText: "5 × 7 = 35" },
+    { num1: 5, num2: 8, text: "5组，每组8个苹果", additionText: "8 + 8 + 8 + 8 + 8 = 40", multiplicationText: "5 × 8 = 40" },
+    { num1: 5, num2: 9, text: "5组，每组9个苹果", additionText: "9 + 9 + 9 + 9 + 9 = 45", multiplicationText: "5 × 9 = 45" },
+    { num1: 6, num2: 1, text: "6组，每组1个苹果", additionText: "1 + 1 + 1 + 1 + 1 + 1 = 6", multiplicationText: "6 × 1 = 6" },
+    { num1: 6, num2: 2, text: "6组，每组2个苹果", additionText: "2 + 2 + 2 + 2 + 2 + 2 = 12", multiplicationText: "6 × 2 = 12" },
+    { num1: 6, num2: 3, text: "6组，每组3个苹果", additionText: "3 + 3 + 3 + 3 + 3 + 3 = 18", multiplicationText: "6 × 3 = 18" },
+    { num1: 6, num2: 4, text: "6组，每组4个苹果", additionText: "4 + 4 + 4 + 4 + 4 + 4 = 24", multiplicationText: "6 × 4 = 24" },
+    { num1: 6, num2: 5, text: "6组，每组5个苹果", additionText: "5 + 5 + 5 + 5 + 5 + 5 = 30", multiplicationText: "6 × 5 = 30" },
+    { num1: 6, num2: 6, text: "6组，每组6个苹果", additionText: "6 + 6 + 6 + 6 + 6 + 6 = 36", multiplicationText: "6 × 6 = 36" },
+    { num1: 6, num2: 7, text: "6组，每组7个苹果", additionText: "7 + 7 + 7 + 7 + 7 + 7 = 42", multiplicationText: "6 × 7 = 42" },
+    { num1: 6, num2: 8, text: "6组，每组8个苹果", additionText: "8 + 8 + 8 + 8 + 8 + 8 = 48", multiplicationText: "6 × 8 = 48" },
+    { num1: 6, num2: 9, text: "6组，每组9个苹果", additionText: "9 + 9 + 9 + 9 + 9 + 9 = 54", multiplicationText: "6 × 9 = 54" },
+    { num1: 7, num2: 1, text: "7组，每组1个苹果", additionText: "1 + 1 + 1 + 1 + 1 + 1 + 1 = 7", multiplicationText: "7 × 1 = 7" },
+    { num1: 7, num2: 2, text: "7组，每组2个苹果", additionText: "2 + 2 + 2 + 2 + 2 + 2 + 2 = 14", multiplicationText: "7 × 2 = 14" },
+    { num1: 7, num2: 3, text: "7组，每组3个苹果", additionText: "3 + 3 + 3 + 3 + 3 + 3 + 3 = 21", multiplicationText: "7 × 3 = 21" },
+    { num1: 7, num2: 4, text: "7组，每组4个苹果", additionText: "4 + 4 + 4 + 4 + 4 + 4 + 4 = 28", multiplicationText: "7 × 4 = 28" },
+    { num1: 7, num2: 5, text: "7组，每组5个苹果", additionText: "5 + 5 + 5 + 5 + 5 + 5 + 5 = 35", multiplicationText: "7 × 5 = 35" },
+    { num1: 7, num2: 6, text: "7组，每组6个苹果", additionText: "6 + 6 + 6 + 6 + 6 + 6 + 6 = 42", multiplicationText: "7 × 6 = 42" },
+    { num1: 7, num2: 7, text: "7组，每组7个苹果", additionText: "7 + 7 + 7 + 7 + 7 + 7 + 7 = 49", multiplicationText: "7 × 7 = 49" },
+    { num1: 7, num2: 8, text: "7组，每组8个苹果", additionText: "8 + 8 + 8 + 8 + 8 + 8 + 8 = 56", multiplicationText: "7 × 8 = 56" },
+    { num1: 7, num2: 9, text: "7组，每组9个苹果", additionText: "9 + 9 + 9 + 9 + 9 + 9 + 9 = 63", multiplicationText: "7 × 9 = 63" },
+    { num1: 8, num2: 1, text: "8组，每组1个苹果", additionText: "1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 = 8", multiplicationText: "8 × 1 = 8" },
+    { num1: 8, num2: 2, text: "8组，每组2个苹果", additionText: "2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 = 16", multiplicationText: "8 × 2 = 16" },
+    { num1: 8, num2: 3, text: "8组，每组3个苹果", additionText: "3 + 3 + 3 + 3 + 3 + 3 + 3 + 3 = 24", multiplicationText: "8 × 3 = 24" },
+    { num1: 8, num2: 4, text: "8组，每组4个苹果", additionText: "4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 = 32", multiplicationText: "8 × 4 = 32" },
+    { num1: 8, num2: 5, text: "8组，每组5个苹果", additionText: "5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 = 40", multiplicationText: "8 × 5 = 40" },
+    { num1: 8, num2: 6, text: "8组，每组6个苹果", additionText: "6 + 6 + 6 + 6 + 6 + 6 + 6 + 6 = 48", multiplicationText: "8 × 6 = 48" },
+    { num1: 8, num2: 7, text: "8组，每组7个苹果", additionText: "7 + 7 + 7 + 7 + 7 + 7 + 7 + 7 = 56", multiplicationText: "8 × 7 = 56" },
+    { num1: 8, num2: 8, text: "8组，每组8个苹果", additionText: "8 + 8 + 8 + 8 + 8 + 8 + 8 + 8 = 64", multiplicationText: "8 × 8 = 64" },
+    { num1: 8, num2: 9, text: "8组，每组9个苹果", additionText: "9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 = 72", multiplicationText: "8 × 9 = 72" },
+    { num1: 9, num2: 1, text: "9组，每组1个苹果", additionText: "1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 = 9", multiplicationText: "9 × 1 = 9" },
+    { num1: 9, num2: 2, text: "9组，每组2个苹果", additionText: "2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 = 18", multiplicationText: "9 × 2 = 18" },
+    { num1: 9, num2: 3, text: "9组，每组3个苹果", additionText: "3 + 3 + 3 + 3 + 3 + 3 + 3 + 3 + 3 = 27", multiplicationText: "9 × 3 = 27" },
+    { num1: 9, num2: 4, text: "9组，每组4个苹果", additionText: "4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 = 36", multiplicationText: "9 × 4 = 36" },
+    { num1: 9, num2: 5, text: "9组，每组5个苹果", additionText: "5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 = 45", multiplicationText: "9 × 5 = 45" },
+    { num1: 9, num2: 6, text: "9组，每组6个苹果", additionText: "6 + 6 + 6 + 6 + 6 + 6 + 6 + 6 + 6 = 54", multiplicationText: "9 × 6 = 54" },
+    { num1: 9, num2: 7, text: "9组，每组7个苹果", additionText: "7 + 7 + 7 + 7 + 7 + 7 + 7 + 7 + 7 = 63", multiplicationText: "9 × 7 = 63" },
+    { num1: 9, num2: 8, text: "9组，每组8个苹果", additionText: "8 + 8 + 8 + 8 + 8 + 8 + 8 + 8 + 8 = 72", multiplicationText: "9 × 8 = 72" },
+    { num1: 9, num2: 9, text: "9组，每组9个苹果", additionText: "9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 = 81", multiplicationText: "9 × 9 = 81" }
 ];
 
 let speechSynthesis = window.speechSynthesis;
@@ -107,6 +186,8 @@ function speak(text) {
 
 // 概念部分初始化
 function initConcepts() {
+    // 随机选择一个起始示例
+    currentConceptExample = Math.floor(Math.random() * conceptExamples.length);
     updateConceptExample();
     
     // 设置"数一数"按钮
@@ -117,19 +198,22 @@ function initConcepts() {
     const prevExampleBtn = document.getElementById('prevExampleBtn');
     const nextExampleBtn = document.getElementById('nextExampleBtn');
     
-    prevExampleBtn.addEventListener('click', () => {
-        if (currentConceptExample > 0) {
-            currentConceptExample--;
-            updateConceptExample();
-        }
-    });
+    // 修改按钮文本
+    prevExampleBtn.textContent = '换一个';
+    nextExampleBtn.textContent = '换一个';
     
-    nextExampleBtn.addEventListener('click', () => {
-        if (currentConceptExample < conceptExamples.length - 1) {
-            currentConceptExample++;
-            updateConceptExample();
-        }
-    });
+    // 为两个按钮添加相同的随机切换功能
+    const showRandomExample = () => {
+        let newIndex;
+        do {
+            newIndex = Math.floor(Math.random() * conceptExamples.length);
+        } while (newIndex === currentConceptExample); // 确保不会重复显示同一个例子
+        currentConceptExample = newIndex;
+        updateConceptExample();
+    };
+    
+    prevExampleBtn.addEventListener('click', showRandomExample);
+    nextExampleBtn.addEventListener('click', showRandomExample);
 }
 
 // 更新概念示例
@@ -141,23 +225,26 @@ function updateConceptExample() {
     const prevExampleBtn = document.getElementById('prevExampleBtn');
     const nextExampleBtn = document.getElementById('nextExampleBtn');
     
-    // 更新苹果展示
+    // 随机选择一个物品
+    const randomItem = items[Math.floor(Math.random() * items.length)];
+    
+    // 更新物品展示
     applesContainer.innerHTML = '';
     for (let i = 0; i < example.num1; i++) {
         const group = document.createElement('div');
         group.className = 'apple-group';
         
         for (let j = 0; j < example.num2; j++) {
-            const apple = document.createElement('div');
-            apple.className = 'apple';
-            group.appendChild(apple);
+            const item = document.createElement('div');
+            item.className = randomItem.className;
+            group.appendChild(item);
         }
         
         applesContainer.appendChild(group);
     }
     
     // 更新文字描述
-    document.querySelector('.visual-example .example-text:first-child p').innerHTML = `这是 <span class="highlight speech-text" data-speech="${example.num1}">${example.num1}</span> 组，每组有 <span class="highlight speech-text" data-speech="${example.num2}">${example.num2}</span> 个苹果`;
+    document.querySelector('.visual-example .example-text:first-child p').innerHTML = `这是 <span class="highlight speech-text" data-speech="${example.num1}">${example.num1}</span> 组，每组有 <span class="highlight speech-text" data-speech="${example.num2}">${example.num2}</span> 个${randomItem.name}`;
     exampleTexts[1].innerHTML = `我们可以这样计算：<span class="highlight">${example.additionText}</span>`;
     exampleTexts[2].innerHTML = `也可以写成：<span class="highlight speech-text" data-speech="${example.num1}乘${example.num2}等于${example.num1 * example.num2}">${example.multiplicationText}</span>`;
     
@@ -177,14 +264,18 @@ function updateConceptExample() {
     document.getElementById('countResult').textContent = '';
 }
 
-// 数苹果的函数
+// 数一数的函数
 function countApples() {
     const example = conceptExamples[currentConceptExample];
     const result = example.num1 * example.num2;
     const countResult = document.getElementById('countResult');
     
-    countResult.textContent = `总共有 ${result} 个苹果！`;
-    speak(`总共有${result}个苹果！`);
+    // 获取当前显示的物品类型
+    const currentItem = document.querySelector('.apple-group div').className;
+    const itemName = items.find(item => item.className === currentItem).name;
+    
+    countResult.textContent = `总共有 ${result} 个${itemName}！`;
+    speak(`总共有${result}个${itemName}！`);
     countResult.classList.add('bounce');
     
     setTimeout(() => {

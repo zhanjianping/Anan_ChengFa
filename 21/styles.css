@@ -169,34 +169,74 @@ h2 {
 .apples-container {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 10px;
     padding: 20px;
     background-color: #e8f5e9;
     border-radius: 15px;
     width: 100%;
+    flex-wrap: wrap;
 }
 
 .apple-group {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.7);
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    padding: 5px;
+    border: 2px dashed #ccc;
     border-radius: 10px;
+    max-width: 600px;
 }
 
-.apple {
-    width: 60px;
-    height: 60px;
-    background-image: url('pingguo.jpg');
+.apple, .banana, .pineapple {
+    width: 30px;
+    height: 30px;
+    margin: 2px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    transition: transform 0.3s;
+    display: inline-block;
 }
 
-.apple:hover {
+.strawberry, .car {
+    width: 60px;
+    height: 60px;
+    margin: 2px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+}
+
+.apple {
+    background-image: url('apple.jpg');
+}
+
+.banana {
+    background-image: url('banana.png');
+}
+
+.car {
+    background-image: url('car.png');
+}
+
+.strawberry {
+    background-image: url('strawberry.png');
+}
+
+.pineapple {
+    background-image: url('pineapple.png');
+}
+
+.apple:hover, .banana:hover, .pineapple:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.car:hover, .strawberry:hover {
     transform: scale(1.1);
+    cursor: pointer;
 }
 
 .count-all {
